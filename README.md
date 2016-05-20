@@ -8,6 +8,20 @@ Currently it supports formatting phone number of 5 countries:
  * SINGAPORE
  * USA (default if no country code is provided)
 
+## Installing
+##### Bower
+This filter can be added to your application through ````bower```` by running following command.
+````
+bower install phone-number-filter
+````
+````html
+<script src="bower_components/phone-number-filter/lib/phNumFilter.j">
+````
+##### Direct Installation
+You can download the ````phNumFilter.js```` file present in the ````lib```` folder and add it to your html.
+````html
+<script src="path-to-file/phNumFilter.j">
+````
 
 ## Usage
 To use the filter inject ````phNumFilter```` to your main apps dependancy list. After that you can use the filter ````tel```` in your html or in your controller.
