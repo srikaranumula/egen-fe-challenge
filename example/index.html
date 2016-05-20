@@ -1,0 +1,100 @@
+<!doctype html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+        <!-- build:css(.) styles/vendor.css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbuild -->
+    </head>
+    <body>
+
+        <div class="container" ng-controller="FilterTestController as vm">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Phone Number Filter</h1>
+                    <hr/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5">
+                    <div class="form-group">
+                        <label for="phone">Number to filter</label>
+                        <input type="text" class="form-control" ng-model="vm.phoneNum" ng-change="vm.modelChanged()" />
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-xs-12">
+                                <label>Country : </label><span> {{vm.detectedCountry}}</span>
+                                <hr/>
+                            </div>
+                            <div class="col-xs-6">
+                                <h4>Filter in HTML</h4>
+                                <div>
+                                    <label>Formatted Number : </label><span> {{vm.phoneNum | tel}}</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <h4>Filter through script</h4>
+                                <div>
+                                    <label>Formatted Number : </label><span> {{vm.filteredNumber}}</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <hr/>
+                                <h4>Examples</h4>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Number</th>
+                                            <th>Formatted</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1234567890</td>
+                                            <td>{{'1234567890'|tel}} (USA, default)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>+551234567890</td>
+                                            <td>{{'+551234567890'|tel}} (BRAZIL)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>+331234567890</td>
+                                            <td>{{'+331234567890'|tel}} (FRANCE)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>+911234567890</td>
+                                            <td>{{'+911234567890'|tel}} (INDIA)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>+6512345678</td>
+                                            <td>{{'+6512345678'|tel}} (SINGAPORE)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>+11234567890</td>
+                                            <td>{{'+11234567890'|tel}} (USA)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- build:js(.) scripts/vendor.js -->
+            <script src="bower_components/jquery/dist/jquery.js"></script>
+            <script src="bower_components/angular/angular.js"></script>
+            <!-- endbuild -->
+
+            <!-- build:js(.) scripts/scripts.js -->
+            <script type="text/javascript" src="lib/phNumFilter.js"></script>
+            <script type="text/javascript" src="example/js/module.js"></script>
+            <script type="text/javascript" src="example/js/controller.js"></script>
+            <!-- endbuild -->
+    </body>
+</html>
