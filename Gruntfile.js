@@ -70,5 +70,5 @@ module.exports = function (grunt) {
 
 	// Register our own custom task alias.
 	grunt.registerTask('serve', ['connect:client', 'watch:client']);
-    grunt.registerTask('buildEx', ['useminPrepare', 'copy', 'cssmin','concat', 'uglify', 'usemin']);
+    grunt.registerTask('buildEx', ['useminPrepare', 'copy', 'concat','cssmin', 'uglify', 'usemin']);
 };
